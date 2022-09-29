@@ -1,18 +1,24 @@
 <?php
 
-namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
+
+use Database\Seeders\PlayerSeeder;
+use Database\Seeders\ProductSeeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+
+        /**
+         * Call all seeder class here
+         */
+        $this->call(ProductSeeder::class);
+        $this->call(PlayerSeeder::class);
     }
 }
