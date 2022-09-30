@@ -6,8 +6,49 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 
 @section('htmlheader')
-    @include('adminlte::layouts.partials.htmlheader')
+@include('adminlte::layouts.partials.htmlheader')
 @show
+
+
+
+<head>
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        #wc_img img {
+            width: 400;
+        }
+
+        input[type=checkbox] {
+            /* Double-sized Checkboxes */
+            -ms-transform: scale(2);
+            /* IE */
+            -moz-transform: scale(2);
+            /* FF */
+            -webkit-transform: scale(2);
+            /* Safari and Chrome */
+            -o-transform: scale(2);
+            /* Opera */
+            transform: scale(2);
+
+            margin-left: 50px;
+            margin-right: 5px;
+            padding: 10px;
+        }
+
+        /* Might want to wrap a span around your checkbox text */
+        .checkboxtext {
+            /* Checkbox text */
+            font-size: 110%;
+            display: inline;
+        }
+    </style>
+</head>
 
 <!--
 BODY TAG OPTIONS:
@@ -29,36 +70,97 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+
+
 <body class="skin-blue sidebar-collapse ">
-<div id="app" v-cloak>
-    <div class="wrapper">
+    <div id="app" v-cloak>
+        <div class="wrapper">
 
-    @include('adminlte::layouts.partials.mainheader')
+            @include('adminlte::layouts.partials.mainheader')
 
-    @include('adminlte::layouts.partials.sidebar')
+            @include('adminlte::layouts.partials.sidebar')
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
 
-        @include('adminlte::layouts.partials.contentheader')
 
-        <!-- Main content -->
-        <section class="content">
-            <!-- Your Page Content Here -->
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
 
-            @yield('content')
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
+                    @yield('page-title')
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
 
-    @include('adminlte::layouts.partials.controlsidebar')
 
-    @include('adminlte::layouts.partials.footer')
 
-</div><!-- ./wrapper -->
-</div>
-@section('scripts')
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+
+                @include('adminlte::layouts.partials.contentheader')
+
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
+
+                    @yield('goalie-content')
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+
+                @include('adminlte::layouts.partials.contentheader')
+
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
+
+                    @yield('defense-content')
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+
+                @include('adminlte::layouts.partials.contentheader')
+
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
+
+                    @yield('midfield-content')
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+
+                @include('adminlte::layouts.partials.contentheader')
+
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
+
+                    @yield('attack-content')
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+
+
+
+
+
+
+            @include('adminlte::layouts.partials.controlsidebar')
+
+            @include('adminlte::layouts.partials.footer')
+
+        </div><!-- ./wrapper -->
+    </div>
+    @section('scripts')
     @include('adminlte::layouts.partials.scripts')
-@show
+    @show
 
 </body>
+
 </html>

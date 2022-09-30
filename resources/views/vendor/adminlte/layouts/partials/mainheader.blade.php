@@ -30,7 +30,7 @@
                         <span class="label label-success"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">New services in the market</li>
+                        <li class="header">Apropos du Créateur</li>
                         <li>
                             <!-- inner menu: contains the messages -->
                             <ul class="menu">
@@ -39,15 +39,15 @@
                                     <a href="#">
                                         <div class="pull-left">
                                             <!-- User Image -->
-                                            <img src="{{ asset('/img/empty.png') }}" class="img-circle" alt="User Image" />
+                                            <img src="images/me.png" class="img-circle" alt="User Image" />
                                         </div>
                                         <!-- Message title and timestamp -->
                                         <h4>
-                                            From the Service Team
-                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                            Peterson Yuhala
+                                            <small><i class="fa fa-clock-o"></i> </small>
                                         </h4>
                                         <!-- The message -->
-                                        <p>Why not buy our new services</p>
+                                        <p> <a href="https://yuhala.github.io/"> Peterson Yuhala</a> </p>
                                     </a>
                                 </li><!-- end message -->
                             </ul><!-- /.menu -->
@@ -56,29 +56,7 @@
                     </ul>
                 </li><!-- /.messages-menu -->
 
-                <!-- Notifications Menu -->
-                <li class="dropdown notifications-menu">
-                    <!-- Menu toggle button -->
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span class="label label-warning">{{Session::has('cart') ? Session::get('cart')->totalQty:''}}</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">Shopping Cart Information</li>
-                        <li>
-                            <!-- Inner Menu: contains the notifications -->
-                            <ul class="menu">
-                                <li>
-                                    <!-- start notification -->
-                                    <a href="{{ route('product.shoppingCart') }}">
-                                        <i class="fa fa-shopping-cart text-aqua"></i> You have {{Session::has('cart') ? Session::get('cart')->totalQty:'no'}} items in your cart
-                                    </a>
-                                </li><!-- end notification -->
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="{{ route('product.shoppingCart') }}">View cart items</a></li>
-                    </ul>
-                </li>
+          
                 <!-- Tasks Menu -->
                 <li class="dropdown tasks-menu">
                     <!-- Menu Toggle Button -->

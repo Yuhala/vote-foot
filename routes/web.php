@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,12 @@ Route::group(['middleware' => 'auth'], function () {
  * PYuhala: 
  * Updating routes with Laravel 8 syntax
  */
-Route::get('/', [ProductController::class, 'getIndex']);
+Route::get('/', [PlayerController::class, 'getIndex']);
+Route::get('/results', [PlayerController::class, 'getResults'])->name('results');
+Route::get('/choiceUpdate', [PlayerController::class, 'updateChosenPlayers'])->name('choiceUpdate');
+
+
+
 Route::get('/profile', [HomeController::class, 'getProfile'])->name('profile');
 Route::get('/market', [ProductController::class, 'getMarket'])->name('shop.market');
 Route::get('/order', [ProductController::class, 'getOrder'])->name('shop.order');
