@@ -50,16 +50,17 @@
                     Club: {{$goalie->clubName}}
                 </p>
                 <div class="clearfix">
-                    <div class="pull-left price">Age: {{$goalie->playerAge}}</div>                   
+                    <div class="pull-left price">Age: {{$goalie->playerAge}}</div>
                     <br>
                     <br>
-                    <form method="post" action="/choiceUpdate">
+                    <form method="POST" action="">
+
                         <div class="icheck-primary">
 
                             <input type="checkbox" value="{{$goalie->id}}" name="idsGoalies[]" id="todoCheck1">
 
                             <span class="text"> Choisir</span>
-                            
+
                         </div>
                     </form>
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -48,6 +49,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             display: inline;
         }
     </style>
+
+    <!-- Script to call Player controller when checkboxes are clicked -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/checkbox-handler.js"></script>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
 <!--

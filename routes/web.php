@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PlayerController;
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
  */
 Route::get('/', [PlayerController::class, 'getIndex']);
 Route::get('/results', [PlayerController::class, 'getResults'])->name('results');
-Route::get('/choiceUpdate', [PlayerController::class, 'updateChosenPlayers'])->name('choiceUpdate');
+Route::post('/choiceUpdate', [PlayerController::class, 'updateChosenPlayers'])->name('choiceUpdate');
+
 
 
 

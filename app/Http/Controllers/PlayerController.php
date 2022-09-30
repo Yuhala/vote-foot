@@ -44,7 +44,10 @@ class PlayerController extends Controller
      * This function updates the number of chosen players in each category
      */
     public function updateChosenPlayers(Request $request)
+    
     {
+
+        return 'Updating chosen players';
         $checkedGoalies = count($request->get('idsGoalies'));
         $checkedDefenders = count($request->get('idsDefenders'));
         $checkedMids = $request->idsMids;
