@@ -41,6 +41,7 @@ npx mix
 # Laravel commands
 - Create db seeder: `php artisan make:seeder ProductSeeder`
 - To drop all tables and re-run all migrations + seed: `php artisan migrate:fresh --seed`
+- To clear application cache: ` php artisan cache:clear`
 
 # Useful commands and tips
 - To check laravel version used by your app, use the command `php artisan --version`.

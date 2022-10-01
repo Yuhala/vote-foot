@@ -1,4 +1,4 @@
 <!-- Main Footer -->
 <footer class="main-footer">
-   <h3></h3>
+   <h4>About the creator: Peterson Yuhala</h4>
 </footer>

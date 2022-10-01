@@ -23,7 +23,7 @@
 
 <div style="text-align:center;padding-bottom:20px">
     @if(empty($checkedGoalies))
-    <h3>Sélectionnez quatre (4) gardiens: 0/4 </h3>
+    <h3>Sélectionnez quatre (4) gardiens: <span id="numSelectedGoalies">0</span>/4 </h3>
     @else
     <h3>Sélectionnez quatre (4) gardiens: {{$checkedGoalies}}/4 </h3>
     @endif
@@ -57,7 +57,7 @@
 
                         <div class="icheck-primary">
 
-                            <input type="checkbox" value="{{$goalie->id}}" name="idsGoalies[]" id="todoCheck1">
+                            <input type="checkbox" value="{{$goalie->id}}" name="idsGoalies[]" id="checkbox-goalie">
 
                             <span class="text"> Choisir</span>
 
@@ -81,7 +81,7 @@
 
 @section('defense-content')
 <div style="text-align:center;padding-bottom:20px">
-    <h3>Sélectionnez neuf (9) défenseurs: 0/9 </h3>
+    <h3>Sélectionnez neuf (9) défenseurs: <span id="numSelectedDefenders">0</span>/9 </h3>
 </div>
 
 @foreach($defenders->chunk(4) as $defenseChunk)
@@ -100,10 +100,10 @@
 
                     <br>
                     <br>
-                    <form method="get" action="{{route('choiceUpdate')}}">
+                    <form method="get" action="">
                         <div class="icheck-primary">
 
-                            <input type="checkbox" value="1" name="idsDefenders[]" id="todoCheck1">
+                            <input type="checkbox" value="{{$defender->id}}" name="idsDefenders[]" id="">
 
                             <span class="text"> Choisir</span>
                         </div>
@@ -123,7 +123,7 @@
 
 @section('midfield-content')
 <div style="text-align:center;padding-bottom:20px">
-    <h3>Sélectionnez six (6) milieu: 0/6 </h3>
+    <h3>Sélectionnez six (6) milieu: <span id="numSelectedMids">0</span>/6 </h3>
 </div>
 
 @foreach($midfielders->chunk(4) as $midfieldChunk)
@@ -142,10 +142,10 @@
 
                     <br>
                     <br>
-                    <form method="get" action="{{route('choiceUpdate')}}">
+                    <form method="get" action="">
                         <div class="icheck-primary">
 
-                            <input type="checkbox" value="1" name="idsMids[]" id="todoCheck1">
+                            <input type="checkbox" value="{{$midfielder->id}}" name="idsMids[]" id="">
 
                             <span class="text"> Choisir</span>
                         </div>
@@ -165,7 +165,7 @@
 
 @section('attack-content')
 <div style="text-align:center;padding-bottom:20px">
-    <h3>Sélectionnez sept (7) attaquants: 0/7 </h3>
+    <h3>Sélectionnez sept (7) attaquants: <span id="numSelectedAttackers">0</span>/7 </h3>
 </div>
 
 @foreach($attackers->chunk(4) as $attackChunk)
@@ -184,10 +184,10 @@
 
                     <br>
                     <br>
-                    <form method="get" action="{{route('choiceUpdate')}}">
+                    <form method="get" action="">
                         <div class="icheck-primary">
 
-                            <input type="checkbox" value="1" name="idsAttackers[]" id="todoCheck1">
+                            <input type="checkbox" value="{{$attacker->id}}" name="idsAttackers[]" id="todoCheck1">
 
                             <span class="text"> Choisir</span>
                         </div>
@@ -204,4 +204,15 @@
 </div>
 @endforeach
 
+@endsection
+
+@section('validate-button')
+<div class="center">
+    <form method="POST" id="validate-vote-form">
+        @csrf
+        <!--   <input name="_token" type="hidden" value="{{ csrf_token() }}" />-->
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="validateButton">Valider ma Sélection</button>
+    </form>
+</div><!-- /.col -->
 @endsection

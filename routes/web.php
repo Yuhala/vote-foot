@@ -19,9 +19,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 
@@ -40,7 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
  */
 Route::get('/', [PlayerController::class, 'getIndex']);
 Route::get('/results', [PlayerController::class, 'getResults'])->name('results');
-Route::post('/choiceUpdate', [PlayerController::class, 'updateChosenPlayers'])->name('choiceUpdate');
+Route::post('/validate-vote', [PlayerController::class, 'validateUserVote'])->name('validate-vote');
 
 
 
@@ -54,7 +51,7 @@ Route::get('/payment', [ProductController::class, 'getPayment'])->name('payment'
 Route::get('/checkout', [ProductController::class, 'getCard'])->name('card');
 Route::post('/checkout', [ProductController::class, 'postCheckout'])->name('checkout');
 Route::get('/summary', [ProductController::class, 'getInvoice'])->name('invoice');
-Route::get('/payment/paypal', [PaymentController::class, 'getPaypal'])->name('payment.paypal');
+//Route::get('/payment/paypal', [PaymentController::class, 'getPaypal'])->name('payment.paypal');
 Route::get('/about', [ProductController::class, 'getAbout'])->name('about');
 
 

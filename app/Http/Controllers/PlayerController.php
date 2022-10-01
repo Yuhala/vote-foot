@@ -41,22 +41,21 @@ class PlayerController extends Controller
 
     /**
      * PYuhala:
-     * This function updates the number of chosen players in each category
+     * This function validates the vote done by a user. 
+     * The request is done from the JS script and contains the ids of all the chosen players.
      */
-    public function updateChosenPlayers(Request $request)
-    
+    public function validateUserVote(Request $request)
+
     {
 
-        return 'Updating chosen players';
-        $checkedGoalies = count($request->get('idsGoalies'));
-        $checkedDefenders = count($request->get('idsDefenders'));
-        $checkedMids = $request->idsMids;
+        //return 'Thanks for voting !!!';
 
-        $checkAttackers = $request->idsAttackers;
 
-        $choices = array('checkedGoalies' => $checkedGoalies, 'checkedDefenders' => $checkedDefenders);
 
-        return redirect('players')->with($choices);
+        $data = json_decode($request->getContent());
+
+
+        return view('votes');
     }
 
 
