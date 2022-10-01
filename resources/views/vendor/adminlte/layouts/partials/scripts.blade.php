@@ -6,8 +6,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ url (mix('/js/app-landing.js')) }}"></script>
-<script src="{{ url (mix('/js/app.js')) }}" type="text/javascript"></script>
+<script src="{{ asset('/js/app-landing.js') }}"></script>
+<script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript" src="{{URL::to('js/checkout.js')}}"></script>
