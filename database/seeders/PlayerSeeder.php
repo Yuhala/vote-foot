@@ -24,6 +24,17 @@ class PlayerSeeder extends Seeder
         ]);
 
         Player::create([
+            'playerName' => 'Davis Epassy',
+            'position' => 'goalie',
+            'clubName' => 'Abha Club',
+            'imagePath' => 'images/footballers/epassy.png',
+            'numVotes' => 0,
+            'playerAge' => 29
+        ]);
+
+
+
+        Player::create([
             'playerName' => 'Fabrice Ondoa',
             'position' => 'goalie',
             'clubName' => 'FK Auda',

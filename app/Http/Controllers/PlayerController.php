@@ -30,10 +30,14 @@ class PlayerController extends Controller
         
         $all_players = DB::table('players')->get();
 
-        $goalies = DB::table('players')->where('position', "=", 'goalie')->get();
-        $defenders = DB::table('players')->where('position', "=", 'defense')->get();
-        $midfielders = DB::table('players')->where('position', "=", 'middle')->get();
-        $attackers = DB::table('players')->where('position', "=", 'attack')->get();
+        // Get all players from the db in their corresponding categories and shuffle
+
+        $goalies = DB::table('players')->where('position', "=", 'goalie')->get()->shuffle();
+        $defenders = DB::table('players')->where('position', "=", 'defense')->get()->shuffle();
+        $midfielders = DB::table('players')->where('position', "=", 'middle')->get()->shuffle();
+        $attackers = DB::table('players')->where('position', "=", 'attack')->get()->shuffle();
+
+        // Shuffle 
 
         $data = array('goalies' => $goalies, 'defenders' => $defenders, 'midfielders' => $midfielders, 'attackers' => $attackers);
         return view('players')->with($data);
@@ -62,7 +66,9 @@ class PlayerController extends Controller
         $checkedMids = $request->input('idsMids');
         $checkedAttackers = $request->input('idsAttackers');
 
-        $data = array('goalies' => $checkedGoalies, 'defenders' => $checkedDefenders, 'midfielders' => $checkedMids, 'attackers' => $checkedAttackers);
+        
+
+        //$data = array('goalies' => $checkedGoalies, 'defenders' => $checkedDefenders, 'midfielders' => $checkedMids, 'attackers' => $checkedAttackers);
 
         //return $data;  
                
