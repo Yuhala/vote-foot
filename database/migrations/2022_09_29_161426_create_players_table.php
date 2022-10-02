@@ -21,6 +21,7 @@ class CreatePlayersTable extends Migration
             $table->integer('playerAge');
             $table->string('imagePath');
             $table->integer('numVotes');
+            $table->float('votePercent')->default(0.0);
             $table->rememberToken();
             $table->timestamps();
            

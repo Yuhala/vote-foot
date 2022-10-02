@@ -1,218 +1,396 @@
-@extends('adminlte::layouts.app')
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
 
-@section('page-title')
-
-
-
-<div style="text-align:center;padding-bottom:40px" class="center">
-
-    <h1>Faites votre liste des Lions Indomptables pour la Coupe du monde 2022!</h1>
-    <img id="wc_img" src="images/wc_2022.png" alt="WC 2022">
-    <br></br>
-
+@section('htmlheader')
+    @include('adminlte::layouts.partials.htmlheader')
+@show
 
 
 
-</div>
+<head>
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        #wc_img img {
+            width: 400;
+        }
+
+        input[type=checkbox] {
+            /* Double-sized Checkboxes */
+            -ms-transform: scale(2);
+            /* IE */
+            -moz-transform: scale(2);
+            /* FF */
+            -webkit-transform: scale(2);
+            /* Safari and Chrome */
+            -o-transform: scale(2);
+            /* Opera */
+            transform: scale(2);
+
+            margin-left: 50px;
+            margin-right: 5px;
+            padding: 10px;
+        }
+
+        /* Might want to wrap a span around your checkbox text */
+        .checkboxtext {
+            /* Checkbox text */
+            font-size: 110%;
+            display: inline;
+        }
+    </style>
+
+    <!-- Script to call Player controller when checkboxes are clicked -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
 
-@endsection
 
-@section('goalie-content')
+</head>
 
-<div style="text-align:center;padding-bottom:20px">
-    @if(empty($checkedGoalies))
-    <h3>Sélectionnez quatre (4) gardiens: <span id="numSelectedGoalies">0</span>/4 </h3>
-    @else
-    <h3>Sélectionnez quatre (4) gardiens: {{$checkedGoalies}}/4 </h3>
-    @endif
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
 
 
-</div>
+<body class="skin-blue sidebar-collapse ">
+
+
+    <div id="app" v-cloak>
+        <div class="wrapper">
+
+            @include('adminlte::layouts.partials.mainheader')
 
 
 
 
 
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
 
-@foreach($goalies->chunk(4) as $goalieChunk)
 
-<div class="row">
-    @foreach($goalieChunk as $goalie)
-    <div class="col-lg-3">
-        <div class="thumbnail">
-            <img src="{{$goalie->imagePath}}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Player">
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
 
-            <div class="caption">
-                <h3>{{$goalie->playerName}}</h3>
-                <p class="description">
-                    Club: {{$goalie->clubName}}
-                </p>
-                <div class="clearfix">
-                    <div class="pull-left price">Age: {{$goalie->playerAge}}</div>
-                    <br>
-                    <br>
-                    <form method="POST" action="">
+                    <div style="text-align:center;padding-bottom:40px" class="center">
 
-                        <div class="icheck-primary">
+                        <h1>Faites votre liste des Lions Indomptables pour la Coupe du monde 2022!</h1>
+                        <img id="wc_img" src="images/wc_2022.png" alt="WC 2022">
+                        <br><br>
 
-                            <input type="checkbox" value="{{$goalie->id}}" name="idsGoalies[]" id="checkbox-goalie">
 
-                            <span class="text"> Choisir</span>
+                    </div>
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+
+
+            <form action="validate-vote" method="POST" id="validate-vote-form">
+                @csrf
+
+
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+
+                    @include('adminlte::layouts.partials.contentheader')
+
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
+
+                        <div style="text-align:center;padding-bottom:20px">
+
+                            <h3>Sélectionnez quatre (4) gardiens: <span id="numSelectedGoalies">0</span>/4 </h3>
 
                         </div>
-                    </form>
 
 
-                </div>
+                        @foreach ($goalies->chunk(4) as $goalieChunk)
+                            <div class="row">
+                                @foreach ($goalieChunk as $goalie)
+                                    <div class="col-lg-3">
+                                        <div class="thumbnail">
+                                            <img src="{{ $goalie->imagePath }}"
+                                                style="float:left;width: 200px;height: 200px;object-fit: cover;"
+                                                alt="Player">
+
+                                            <div class="caption">
+                                                <h3>{{ $goalie->playerName }}</h3>
+                                                <p class="description">
+                                                    &nbsp Club: {{ $goalie->clubName }}
+                                                </p>
+                                                <div class="clearfix">
+                                                    <div class="pull-left price">&nbsp Age: {{ $goalie->playerAge }}</div>
+                                                    <br>
+                                                    <br>
+
+
+                                                    <div class="icheck-primary">
+
+                                                        <input type="checkbox" value="{{ $goalie->id }}"
+                                                            name="idsGoalies[]" id="checkbox-goalie">
+
+                                                        <span class="text"> Choisir</span>
+
+                                                    </div>
 
 
 
-            </div>
-        </div>
-    </div>
-    @endforeach
+                                                </div>
 
-</div>
-@endforeach
 
-@endsection
 
-@section('defense-content')
-<div style="text-align:center;padding-bottom:20px">
-    <h3>Sélectionnez neuf (9) défenseurs: <span id="numSelectedDefenders">0</span>/9 </h3>
-</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
 
-@foreach($defenders->chunk(4) as $defenseChunk)
-<div class="row">
-    @foreach($defenseChunk as $defender)
-    <div class="col-lg-3">
-        <div class="thumbnail">
-            <img src="{{$defender->imagePath}}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Book">
-            <div class="caption">
-                <h3>{{$defender->playerName}}</h3>
-                <p class="description">
-                    Club: {{$defender->clubName}}
-                </p>
-                <div class="clearfix">
-                    <div class="pull-left price">Age: {{$defender->playerAge}}</div>
+                            </div>
+                        @endforeach
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
 
-                    <br>
-                    <br>
-                    <form method="get" action="">
-                        <div class="icheck-primary">
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
 
-                            <input type="checkbox" value="{{$defender->id}}" name="idsDefenders[]" id="">
+                    @include('adminlte::layouts.partials.contentheader')
 
-                            <span class="text"> Choisir</span>
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
+
+                        <div style="text-align:center;padding-bottom:20px">
+                            <h3>Sélectionnez neuf (9) défenseurs: <span id="numSelectedDefenders">0</span>/9 </h3>
                         </div>
-                    </form>
+
+                        @foreach ($defenders->chunk(4) as $defenseChunk)
+                            <div class="row">
+                                @foreach ($defenseChunk as $defender)
+                                    <div class="col-lg-3">
+                                        <div class="thumbnail">
+                                            <img src="{{ $defender->imagePath }}"
+                                                style="float:left;width: 200px;height: 200px;object-fit: cover;"
+                                                alt="Book">
+                                            <div class="caption">
+                                                <h3>{{ $defender->playerName }}</h3>
+                                                <p class="description">
+                                                    &nbsp Club: {{ $defender->clubName }}
+                                                </p>
+                                                <div class="clearfix">
+                                                    <div class="pull-left price">&nbsp Age: {{ $defender->playerAge }}</div>
+
+                                                    <br>
+                                                    <br>
+
+                                                    <div class="icheck-primary">
+
+                                                        <input type="checkbox" value="{{ $defender->id }}"
+                                                            name="idsDefenders[]" id="">
+
+                                                        <span class="text"> Choisir</span>
+                                                    </div>
 
 
-                </div>
-            </div>
-        </div>
-    </div>
-    @endforeach
 
-</div>
-@endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
 
-@endsection
+                            </div>
+                        @endforeach
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
 
-@section('midfield-content')
-<div style="text-align:center;padding-bottom:20px">
-    <h3>Sélectionnez six (6) milieu: <span id="numSelectedMids">0</span>/6 </h3>
-</div>
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
 
-@foreach($midfielders->chunk(4) as $midfieldChunk)
-<div class="row">
-    @foreach($midfieldChunk as $midfielder)
-    <div class="col-lg-3">
-        <div class="thumbnail">
-            <img src="{{$midfielder->imagePath}}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Player">
-            <div class="caption">
-                <h3>{{$midfielder->playerName}}</h3>
-                <p class="description">
-                    Club: {{$midfielder->clubName}}
-                </p>
-                <div class="clearfix">
-                    <div class="pull-left price">Age: {{$midfielder->playerAge}}</div>
+                    @include('adminlte::layouts.partials.contentheader')
 
-                    <br>
-                    <br>
-                    <form method="get" action="">
-                        <div class="icheck-primary">
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
 
-                            <input type="checkbox" value="{{$midfielder->id}}" name="idsMids[]" id="">
-
-                            <span class="text"> Choisir</span>
+                        <div style="text-align:center;padding-bottom:20px">
+                            <h3>Sélectionnez six (6) milieux: <span id="numSelectedMids">0</span>/6 </h3>
                         </div>
-                    </form>
+
+                        @foreach ($midfielders->chunk(4) as $midfieldChunk)
+                            <div class="row">
+                                @foreach ($midfieldChunk as $midfielder)
+                                    <div class="col-lg-3">
+                                        <div class="thumbnail">
+                                            <img src="{{ $midfielder->imagePath }}"
+                                                style="float:left;width: 200px;height: 200px;object-fit: cover;"
+                                                alt="Player">
+                                            <div class="caption">
+                                                <h3>{{ $midfielder->playerName }}</h3>
+                                                <p class="description">
+                                                    &nbsp Club: {{ $midfielder->clubName }}
+                                                </p>
+                                                <div class="clearfix">
+                                                    <div class="pull-left price">&nbsp Age: {{ $midfielder->playerAge }}
+                                                    </div>
+
+                                                    <br>
+                                                    <br>
+
+                                                    <div class="icheck-primary">
+
+                                                        <input type="checkbox" value="{{ $midfielder->id }}"
+                                                            name="idsMids[]" id="">
+
+                                                        <span class="text"> Choisir</span>
+                                                    </div>
 
 
-                </div>
-            </div>
-        </div>
-    </div>
-    @endforeach
 
-</div>
-@endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
 
-@endsection
+                            </div>
+                        @endforeach
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
 
-@section('attack-content')
-<div style="text-align:center;padding-bottom:20px">
-    <h3>Sélectionnez sept (7) attaquants: <span id="numSelectedAttackers">0</span>/7 </h3>
-</div>
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
 
-@foreach($attackers->chunk(4) as $attackChunk)
-<div class="row">
-    @foreach($attackChunk as $attacker)
-    <div class="col-lg-3">
-        <div class="thumbnail">
-            <img src="{{$attacker->imagePath}}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Book">
-            <div class="caption">
-                <h3>{{$attacker->playerName}}</h3>
-                <p class="description">
-                    Club: {{$attacker->clubName}}
-                </p>
-                <div class="clearfix">
-                    <div class="pull-left price">Age: {{$attacker->playerAge}}</div>
+                    @include('adminlte::layouts.partials.contentheader')
 
-                    <br>
-                    <br>
-                    <form method="get" action="">
-                        <div class="icheck-primary">
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
 
-                            <input type="checkbox" value="{{$attacker->id}}" name="idsAttackers[]" id="todoCheck1">
-
-                            <span class="text"> Choisir</span>
+                        <div style="text-align:center;padding-bottom:20px">
+                            <h3>Sélectionnez sept (7) attaquants: <span id="numSelectedAttackers">0</span>/7 </h3>
                         </div>
-                    </form>
+
+                        @foreach ($attackers->chunk(4) as $attackChunk)
+                            <div class="row">
+                                @foreach ($attackChunk as $attacker)
+                                    <div class="col-lg-3">
+                                        <div class="thumbnail">
+                                            <img src="{{ $attacker->imagePath }}"
+                                                style="float:left;width: 200px;height: 200px;object-fit: cover;"
+                                                alt="Book">
+                                            <div class="caption">
+                                                <h3>{{ $attacker->playerName }}</h3>
+                                                <p class="description">
+                                                   &nbsp Club: {{ $attacker->clubName }}
+                                                </p>
+                                                <div class="clearfix">
+                                                    <div class="pull-left price">&nbsp Age: {{ $attacker->playerAge }}</div>
+
+                                                    <br>
+                                                    <br>
+
+                                                    <div class="icheck-primary">
+
+                                                        <input type="checkbox" value="{{ $attacker->id }}"
+                                                            name="idsAttackers[]" id="todoCheck1">
+
+                                                        <span class="text"> Choisir</span>
+                                                    </div>
 
 
 
-                </div>
-            </div>
-        </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                        @endforeach
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
+
+
+
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+
+                    @include('adminlte::layouts.partials.contentheader')
+
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
+
+                        <div class="center">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" id="validateButton"
+                                disabled="disabled">
+                                Valider ma Sélection
+                            </button>
+
+                        </div><!-- /.col -->
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
+
+
+            </form>
+
+
+            <div class="content-wrapper">
+
+
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
+                    <div style="text-align:center;margin-top:-200px;" class="center">
+                        <h3 style="font-family">SHESA Golden Jubilee!!!</h3>
+                        <img src="images/shesa_jubilee.jpg" class="center" alt="shesa jubilee">
+
+                    </div>
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+
+
+            @include('adminlte::layouts.partials.footer')
+            @include('adminlte::layouts.partials.controlsidebar')
+
+        </div><!-- ./wrapper -->
+
     </div>
-    @endforeach
 
-</div>
-@endforeach
 
-@endsection
+    @section('scripts')
+        @include('adminlte::layouts.partials.scripts')
+    @show
 
-@section('validate-button')
-<div class="center">
-    <form method="POST" id="validate-vote-form">
-        @csrf
-        <!--   <input name="_token" type="hidden" value="{{ csrf_token() }}" />-->
+    <script src="js/checkbox-handler.js"></script>
+</body>
 
-        <button type="submit" class="btn btn-primary btn-block btn-lg" id="validateButton">Valider ma Sélection</button>
-    </form>
-</div><!-- /.col -->
-@endsection
+</html>

@@ -6,7 +6,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 
 @section('htmlheader')
-@include('adminlte::layouts.partials.htmlheader')
+    @include('adminlte::layouts.partials.htmlheader')
 @show
 
 
@@ -49,10 +49,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
     </style>
 
-    <!-- Script to call Player controller when checkboxes are clicked -->    
+    <!-- Script to call Player controller when checkboxes are clicked -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
+
 
 
 
@@ -90,6 +90,8 @@ desired effect
 
             @include('adminlte::layouts.partials.sidebar')
 
+
+
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
 
@@ -103,74 +105,87 @@ desired effect
             </div><!-- /.content-wrapper -->
 
 
+            <form action="validate-vote" method="POST" id="validate-vote-form">
+                @csrf
 
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
 
-                @include('adminlte::layouts.partials.contentheader')
+                    @include('adminlte::layouts.partials.contentheader')
 
-                <!-- Main content -->
-                <section class="content">
-                    <!-- Your Page Content Here -->
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
 
-                    @yield('goalie-content')
-                </section><!-- /.content -->
-            </div><!-- /.content-wrapper -->
+                        @yield('goalie-content')
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
 
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
 
-                @include('adminlte::layouts.partials.contentheader')
+                    @include('adminlte::layouts.partials.contentheader')
 
-                <!-- Main content -->
-                <section class="content">
-                    <!-- Your Page Content Here -->
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
 
-                    @yield('defense-content')
-                </section><!-- /.content -->
-            </div><!-- /.content-wrapper -->
+                        @yield('defense-content')
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
 
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
 
-                @include('adminlte::layouts.partials.contentheader')
+                    @include('adminlte::layouts.partials.contentheader')
 
-                <!-- Main content -->
-                <section class="content">
-                    <!-- Your Page Content Here -->
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
 
-                    @yield('midfield-content')
-                </section><!-- /.content -->
-            </div><!-- /.content-wrapper -->
+                        @yield('midfield-content')
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
 
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
 
-                @include('adminlte::layouts.partials.contentheader')
+                    @include('adminlte::layouts.partials.contentheader')
 
-                <!-- Main content -->
-                <section class="content">
-                    <!-- Your Page Content Here -->
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
 
-                    @yield('attack-content')
-                </section><!-- /.content -->
-            </div><!-- /.content-wrapper -->
-
-
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-
-                @include('adminlte::layouts.partials.contentheader')
-
-                <!-- Main content -->
-                <section class="content">
-                    <!-- Your Page Content Here -->
-
-                    @yield('validate-button')
-                </section><!-- /.content -->
-            </div><!-- /.content-wrapper -->
+                        @yield('attack-content')
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
 
 
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+
+                    @include('adminlte::layouts.partials.contentheader')
+
+                    <!-- Main content -->
+                    <section class="content">
+                        <!-- Your Page Content Here -->
+
+                        @yield('validate-button')
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
+
+
+            </form>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             @include('adminlte::layouts.partials.controlsidebar')
 
@@ -179,7 +194,7 @@ desired effect
         </div><!-- ./wrapper -->
     </div>
     @section('scripts')
-    @include('adminlte::layouts.partials.scripts')
+        @include('adminlte::layouts.partials.scripts')
     @show
 
     <script src="js/checkbox-handler.js"></script>

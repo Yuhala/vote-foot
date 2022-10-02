@@ -1,4 +1,3 @@
-
 /**
  * PYuhala
  * This script handles all the checkbox events: 
@@ -13,9 +12,11 @@
 var totalSelected = 0;
 var voteValidated = false;
 
-$(document).ready(function () {
+var total = 0;
+
+$(document).ready(function() {
     // All checked boxes
-    var $checkboxes = $('input[type=checkbox]:checked');
+    var $checkboxes = $('input[type=checkbox]');
 
 
 
@@ -42,7 +43,7 @@ $(document).ready(function () {
 
     // Handle goalie checkboxes
     if ('$checkedGoalies.fil') {
-        $checkedGoalies.change(function () {
+        $checkedGoalies.change(function() {
             if (this.checked) {
 
                 numG += 1;
@@ -65,7 +66,7 @@ $(document).ready(function () {
 
     // Handle defener checkboxes
     if ('$checkedDefenders.fil') {
-        $checkedDefenders.change(function () {
+        $checkedDefenders.change(function() {
             if (this.checked) {
 
                 numD += 1;
@@ -89,7 +90,7 @@ $(document).ready(function () {
 
     // Handle mid-fielder checkboxes
     if ('$checkedMids.fil') {
-        $checkedMids.change(function () {
+        $checkedMids.change(function() {
             if (this.checked) {
 
                 numM += 1;
@@ -113,7 +114,7 @@ $(document).ready(function () {
 
     // Handle mid-fielder checkboxes
     if ('$checkedAttackers.fil') {
-        $checkedAttackers.change(function () {
+        $checkedAttackers.change(function() {
             if (this.checked) {
 
                 numA += 1;
@@ -134,6 +135,20 @@ $(document).ready(function () {
         });
     }
 
+    if ('$checkboxes.fil') {
+
+        $checkboxes.change(function() {
+            // Update validate button state
+            if (totalSelected < 26) {
+                $("#validateButton").prop('disabled', true);
+            } else {
+                $("#validateButton").prop('disabled', false);
+            }
+        });
+    }
+
+
+
 
     /**
      * Get the selected players and send to player controller for processing. 
@@ -146,50 +161,51 @@ $(document).ready(function () {
     var selectedIds = [];
 
 
-    var form = $("#validate-vote-form");
+    var form = $("#validate-vote-formxx");
 
-    $(form).on('submit', function (event) {
+    $(form).on('submit', function(event) {
         event.preventDefault();
 
-        if (totalSelected == 100) {
+
+
+        if (totalSelected > 26) {
             alert(errorMessage);
-        }
-        else {
+        } else {
             if (voteValidated) {
                 alert("Votes déjà Validés!")
-            }
-            else {
+            } else {
                 // Get all selected player ids
-                $("input:checkbox[type=checkbox]:checked").each(function () { selectedIds.push($(this).val()); });
+                $("input:checkbox[type=checkbox]:checked").each(function() { selectedIds.push($(this).val()); });
                 voteValidated = true;
             }
             var stringedIds = JSON.stringify(selectedIds);
             // alert(stringedIds);
 
             // Send data to Player Controller
-            var _token = $("input[name='_token']").val();
-            //var url = $(this).attr('action');
+            var token = $("input[name='_token']").val();
+            var url = $(this).attr("action");
 
 
-            alert(">>>>>>>>>>> About to call AJAX >>>>>>>> ");
-            //_token: '{{ csrf_token() }}',
+
+
             $.ajax({
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': token
                 },
-
-                url: "/validate-vote",
+                url: '{{URL::to("validate-vote")}}',
                 method: "POST",
-                data: { data: stringedIds },
-                dataType: 'json',
-                contentType: 'json',
-                cache: false,
-                processData: false
+                data: {
+                    _token: token,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    'stringedIds': stringedIds,
+                    success: function() {
+                        window.alert(url);
+
+                    }
+                }
 
 
-
-            }).done(function () {
-                alert("AJAX Called controller successfully");
             });
         }
 
@@ -197,56 +213,53 @@ $(document).ready(function () {
 
 
 
-    $("#validateButtonxx").click(function () {
+    $("#validateButtonxx").click(function() {
 
-        if (totalSelected == 100) {
+        if (totalSelected < 26) {
             alert(errorMessage);
-        }
-        else {
+        } else {
             if (voteValidated) {
                 alert("Votes déjà Validés!")
-            }
-            else {
+            } else {
                 // Get all selected player ids
-                $("input:checkbox[type=checkbox]:checked").each(function () { selectedIds.push($(this).val()); });
+                $("input:checkbox[type=checkbox]:checked").each(function() { selectedIds.push($(this).val()); });
                 voteValidated = true;
+
+                var stringedIds = JSON.stringify(selectedIds);
+                // alert(stringedIds);
+
+                // Send data to Player Controller
+                var token = $("input[name='_token']").val();
+                var url = $(this).attr("data-url");
+
+
+                //alert(">>>>>>>>>>> About to call AJAX >>>>>>>> ");
+                //_token: '{{ csrf_token() }}',
+                // $.ajax({
+                //     header: {
+                //         'X-CSRF-TOKEN': token
+                //     },
+                //     url: url,
+                //     method: "POST",
+                //     data: {
+                //         _token: token,
+                //         dataType: 'json',
+                //         contentType: 'application/json',
+                //         'stringedIds': stringedIds,
+                //         success: function() {
+                //             window.alert(url);
+                //         }
+                //     }
+
+
+                // });
             }
-            var stringedIds = JSON.stringify(selectedIds);
-            // alert(stringedIds);
 
-            // Send data to Player Controller
-            var _token = $("input[name='_token']").val();
-            var url = $("form[name='validate']").attr('action');
-
-
-            alert(">>>>>>>>>>> About to call AJAX >>>>>>>> ");
-            //_token: '{{ csrf_token() }}',
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-
-                url: url,
-                type: "POST",
-                dataType: 'json',
-                contentType: 'json',
-                data: {
-                    stringedIds: stringedIds,
-                    _token: _token
-                }
-
-
-            }).done(function () {
-                alert("AJAX Called controller successfully");
-            });
         }
 
 
-    }
-    );
+    });
 
 
 
 });
-
-

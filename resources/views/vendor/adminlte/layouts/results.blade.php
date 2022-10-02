@@ -6,7 +6,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
  <html lang="en">
 
  @section('htmlheader')
- @include('adminlte::layouts.partials.htmlheader')
+     @include('adminlte::layouts.partials.htmlheader')
  @show
 
 
@@ -71,31 +71,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                      <div class="card">
 
                          <div class="card-body p-0">
-                             <table class="table table-striped projects">
-                                 <thead>
-                                     <tr>
-                                         <th style="width: 1%">
-                                             #
-                                         </th>
-                                         <th style="width: 20%">
-                                             Joeur
-                                         </th>
-                                         <th style="width: 30%">
-                                             Avatar
-                                         </th>
-                                         <th>
-                                             Pourcentage de Votes
-                                         </th>
-                                         <th style="width: 8%" class="text-center">
-                                             Prediction
-                                         </th>
-                                         <th style="width: 20%">
-                                         </th>
-                                     </tr>
-                                 </thead>
 
-                                 @yield('voting-results')
-                             </table>
+                             @yield('voting-results')
+
                          </div>
                          <!-- /.card-body -->
                      </div>
@@ -109,6 +87,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
          </div>
      </div>
 
+  
+
+     @include('adminlte::layouts.partials.footer')
+     @include('adminlte::layouts.partials.controlsidebar')
 
 
 
@@ -116,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
      @section('scripts')
-     @include('adminlte::layouts.partials.scripts')
+         @include('adminlte::layouts.partials.scripts')
      @show
 
  </body>

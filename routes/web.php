@@ -35,10 +35,10 @@ Route::group(['middleware' => 'auth'], function () {
  * PYuhala: 
  * Updating routes with Laravel 8 syntax
  */
-Route::get('/', [PlayerController::class, 'getIndex']);
+Route::get('/', [PlayerController::class, 'getIndex'])->name('index');
 Route::get('/results', [PlayerController::class, 'getResults'])->name('results');
-Route::post('/validate-vote', [PlayerController::class, 'validateUserVote'])->name('validate-vote');
-
+Route::get('/validate-vote', [PlayerController::class, 'getResults'])->name('validate-vote-get');
+Route::post("validate-vote", [PlayerController::class, 'getVotes'])->name('validate-vote');
 
 
 

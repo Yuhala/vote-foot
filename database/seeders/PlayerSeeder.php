@@ -89,15 +89,6 @@ class PlayerSeeder extends Seeder
         ]);
 
         Player::create([
-            'playerName' => 'Nicolas Nkoulou',
-            'position' => 'defense',
-            'clubName' => 'Aris',
-            'imagePath' => 'images/footballers/nkoulou.png',
-            'numVotes' => 0,
-            'playerAge' => 32
-        ]);
-
-        Player::create([
             'playerName' => 'Ngadeu-Ngadjui Michael',
             'position' => 'defense',
             'clubName' => 'Gent',
@@ -114,6 +105,38 @@ class PlayerSeeder extends Seeder
             'numVotes' => 0,
             'playerAge' => 27
         ]);
+
+        Player::create([
+            'playerName' => 'Fai Collins',
+            'position' => 'defense',
+            'clubName' => 'Al-Tai',
+            'imagePath' => 'images/footballers/fai.png',
+            'numVotes' => 0,
+            'playerAge' => 30
+        ]);
+
+
+        Player::create([
+            'playerName' => 'Nouhou Tolo',
+            'position' => 'defense',
+            'clubName' => 'Seattle',
+            'imagePath' => 'images/footballers/nouhou.png',
+            'numVotes' => 0,
+            'playerAge' => 25
+        ]);
+
+        Player::create([
+            'playerName' => 'Nicolas Nkoulou',
+            'position' => 'defense',
+            'clubName' => 'Aris',
+            'imagePath' => 'images/footballers/nkoulou.png',
+            'numVotes' => 0,
+            'playerAge' => 32
+        ]);
+
+       
+
+       
 
         Player::create([
             'playerName' => 'Christopher Wooh',
@@ -142,14 +165,6 @@ class PlayerSeeder extends Seeder
             'playerAge' => 24
         ]);
 
-        Player::create([
-            'playerName' => 'Nouhou Tolo',
-            'position' => 'defense',
-            'clubName' => 'Seattle',
-            'imagePath' => 'images/footballers/nouhou.png',
-            'numVotes' => 0,
-            'playerAge' => 25
-        ]);
 
         Player::create([
             'playerName' => 'Enzo Ebosse',
@@ -178,15 +193,7 @@ class PlayerSeeder extends Seeder
             'playerAge' => 19
         ]);
 
-        Player::create([
-            'playerName' => 'Fai Collins',
-            'position' => 'defense',
-            'clubName' => 'Al-Tai',
-            'imagePath' => 'images/footballers/fai.png',
-            'numVotes' => 0,
-            'playerAge' => 30
-        ]);
-
+      
         Player::create([
             'playerName' => 'Mbaizo Olivier',
             'position' => 'defense',
@@ -223,16 +230,6 @@ class PlayerSeeder extends Seeder
             'playerAge' => 22
         ]);
 
-
-        Player::create([
-            'playerName' => 'Jean Onana',
-            'position' => 'middle',
-            'clubName' => 'Lens',
-            'imagePath' => 'images/footballers/jean_onana.png',
-            'numVotes' => 0,
-            'playerAge' => 22
-        ]);
-
         Player::create([
             'playerName' => 'Zambo Anguissa',
             'position' => 'middle',
@@ -241,7 +238,6 @@ class PlayerSeeder extends Seeder
             'numVotes' => 0,
             'playerAge' => 26
         ]);
-
 
         Player::create([
             'playerName' => 'Oum Gouet',
@@ -252,6 +248,38 @@ class PlayerSeeder extends Seeder
             'playerAge' => 24
         ]);
 
+        Player::create([
+            'playerName' => 'Hongla Martin',
+            'position' => 'middle',
+            'clubName' => 'Hellas Verona',
+            'imagePath' => 'images/footballers/hongla.png',
+            'numVotes' => 0,
+            'playerAge' => 24
+        ]);
+
+
+        Player::create([
+            'playerName' => 'Kunde Malong',
+            'position' => 'middle',
+            'clubName' => 'Olympiakos',
+            'imagePath' => 'images/footballers/kunde.png',
+            'numVotes' => 0,
+            'playerAge' => 27
+        ]);
+
+
+        Player::create([
+            'playerName' => 'Jean Onana',
+            'position' => 'middle',
+            'clubName' => 'Lens',
+            'imagePath' => 'images/footballers/jean_onana.png',
+            'numVotes' => 0,
+            'playerAge' => 22
+        ]);
+
+     
+
+     
 
         Player::create([
             'playerName' => 'Georges Mandjeck',
@@ -273,25 +301,7 @@ class PlayerSeeder extends Seeder
         ]);
 
 
-        Player::create([
-            'playerName' => 'Hongla Martin',
-            'position' => 'middle',
-            'clubName' => 'Hellas Verona',
-            'imagePath' => 'images/footballers/hongla.png',
-            'numVotes' => 0,
-            'playerAge' => 24
-        ]);
-
-
-        Player::create([
-            'playerName' => 'Kunde Malong',
-            'position' => 'middle',
-            'clubName' => 'Olympiakos',
-            'imagePath' => 'images/footballers/kunde.png',
-            'numVotes' => 0,
-            'playerAge' => 27
-        ]);
-
+      
 
         Player::create([
             'playerName' => 'Ambina Fidel',

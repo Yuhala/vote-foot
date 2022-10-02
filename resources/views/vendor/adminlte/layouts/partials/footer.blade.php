@@ -1,4 +1,10 @@
 <!-- Main Footer -->
 <footer class="main-footer">
-   <h4>About the creator: Peterson Yuhala</h4>
+    <div style="text-align:center;" class="center">
+        <h4>Concepteurs de Vote Foot: <br><br>
+            <a href="https://yuhala.github.io/"> Peterson Yuhala</a>
+            <br><br>
+            <p>Bechem Emmanuel</p>
+        </h4>
+    </div>
 </footer>
