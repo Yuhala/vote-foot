@@ -379,7 +379,7 @@ desired effect
 
 
             @include('adminlte::layouts.partials.footer')
-            @include('adminlte::layouts.partials.controlsidebar')
+           
 
         </div><!-- ./wrapper -->
 
