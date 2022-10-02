@@ -7,7 +7,7 @@
         <img src="images/wc_2022.png" alt="WC 2022">
         <br><br>
         <h1>Le Vote des Internautes!</h1>
-
+        <br><br>
     </div>
 @endsection
 
@@ -268,5 +268,10 @@
             </tbody>
         @endforeach
     </table>
-@endsection
 
+    <br><br>
+    <div style="width:25%;height:100px;" class="center">
+        <x-adminlte-small-box title="Total de votes: {{ $totalVotes }}" icon="fas fa-vote-yea text-white"
+            theme="purple" />
+    </div>
+@endsection

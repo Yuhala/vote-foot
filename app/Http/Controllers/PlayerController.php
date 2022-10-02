@@ -110,7 +110,9 @@ class PlayerController extends Controller
         $mt = DB::table('players')->where('position', "=", 'middle')->sum('numVotes');
         $at = DB::table('players')->where('position', "=", 'attack')->sum('numVotes');
 
-        //return $mt;
+        $sumVotes = $gt + $dt + $mt +$at;
+        // number of actual user votes (NB: each vote contains 26 choices)
+        $totalVotes = $sumVotes/26;
        
         /**
          * PYuhala: 
@@ -179,7 +181,7 @@ class PlayerController extends Controller
 
         // Send results to votes view      
 
-        $data = array('goalies' => $goalies, 'defenders' => $defenders, 'midfielders' => $midfielders, 'attackers' => $attackers);       
+        $data = array('goalies' => $goalies, 'defenders' => $defenders, 'midfielders' => $midfielders, 'attackers' => $attackers, 'totalVotes' => $totalVotes);       
         return view('votes')->with($data);
        
     }
