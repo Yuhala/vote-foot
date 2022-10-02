@@ -97,7 +97,7 @@ desired effect
                     <!-- Your Page Content Here -->
 
                     <div style="text-align:center;padding-bottom:40px" class="center">
-                        <img id="wc_img" src="images/wc_2022.png" alt="WC 2022">
+                        <img id="wc_imgxx" src="images/wc_2022.png" alt="WC 2022">
                         <br><br>
                         <h1>Faites votre liste des Lions Indomptables pour la Coupe du monde 2022!</h1>
                         <br><br>
