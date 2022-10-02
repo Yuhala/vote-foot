@@ -88,10 +88,6 @@ desired effect
 
             @include('adminlte::layouts.partials.mainheader')
 
-
-
-
-
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
 
@@ -101,9 +97,9 @@ desired effect
                     <!-- Your Page Content Here -->
 
                     <div style="text-align:center;padding-bottom:40px" class="center">
-
-                        <h1>Faites votre liste des Lions Indomptables pour la Coupe du monde 2022!</h1>
                         <img id="wc_img" src="images/wc_2022.png" alt="WC 2022">
+                        <br><br>
+                        <h1>Faites votre liste des Lions Indomptables pour la Coupe du monde 2022!</h1>
                         <br><br>
 
 
@@ -147,7 +143,8 @@ desired effect
                                                     &nbsp Club: {{ $goalie->clubName }}
                                                 </p>
                                                 <div class="clearfix">
-                                                    <div class="pull-left price">&nbsp Age: {{ $goalie->playerAge }}</div>
+                                                    <div class="pull-left price">&nbsp Age: {{ $goalie->playerAge }}
+                                                    </div>
                                                     <br>
                                                     <br>
 
@@ -204,7 +201,8 @@ desired effect
                                                     &nbsp Club: {{ $defender->clubName }}
                                                 </p>
                                                 <div class="clearfix">
-                                                    <div class="pull-left price">&nbsp Age: {{ $defender->playerAge }}</div>
+                                                    <div class="pull-left price">&nbsp Age: {{ $defender->playerAge }}
+                                                    </div>
 
                                                     <br>
                                                     <br>
@@ -257,7 +255,8 @@ desired effect
                                                     &nbsp Club: {{ $midfielder->clubName }}
                                                 </p>
                                                 <div class="clearfix">
-                                                    <div class="pull-left price">&nbsp Age: {{ $midfielder->playerAge }}
+                                                    <div class="pull-left price">&nbsp Age:
+                                                        {{ $midfielder->playerAge }}
                                                     </div>
 
                                                     <br>
@@ -308,10 +307,11 @@ desired effect
                                             <div class="caption">
                                                 <h3>{{ $attacker->playerName }}</h3>
                                                 <p class="description">
-                                                   &nbsp Club: {{ $attacker->clubName }}
+                                                    &nbsp Club: {{ $attacker->clubName }}
                                                 </p>
                                                 <div class="clearfix">
-                                                    <div class="pull-left price">&nbsp Age: {{ $attacker->playerAge }}</div>
+                                                    <div class="pull-left price">&nbsp Age: {{ $attacker->playerAge }}
+                                                    </div>
 
                                                     <br>
                                                     <br>
@@ -379,7 +379,7 @@ desired effect
 
 
             @include('adminlte::layouts.partials.footer')
-           
+
 
         </div><!-- ./wrapper -->
 
