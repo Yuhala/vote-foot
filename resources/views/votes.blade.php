@@ -270,8 +270,7 @@
     </table>
 
     <br><br>
-    <div style="width:25%;height:100px;" class="center">
-        <x-adminlte-small-box title="Total de votes: {{ $totalVotes }}" icon="fas fa-vote-yea text-white"
-            theme="purple" />
+    <div style="text-align:center;" class="center">
+        <span>{{ $totalVotes }} votes.</span>
     </div>
 @endsection
