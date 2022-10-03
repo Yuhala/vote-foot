@@ -24,6 +24,11 @@ $(document).on("pageshow", function() {
     numD = 0;
     numM = 0;
     numA = 0;
+
+    $("#numSelectedGoalies").text(0);
+    $("#numSelectedDefenders").text(0);
+    $("#numSelectedMids").text(0);
+    $("#numSelectedAttackers").text(0);
 });
 
 $(document).ready(function() {
