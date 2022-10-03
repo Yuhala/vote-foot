@@ -18,6 +18,12 @@ var numD = 0;
 var numM = 0;
 var numA = 0;
 
+function reInitializeTotal() {
+    if (totalSelected >= 26) {
+        totalSelected = 0;
+    }
+}
+
 $(document).on("pageshow", function() {
     totalSelected = 0;
     numG = 0;
@@ -95,6 +101,7 @@ $(document).ready(function() {
     if ('$checkedGoalies.fil') {
         $checkedGoalies.change(function() {
             if (this.checked) {
+                reInitializeTotal();
 
                 numG += 1;
                 totalSelected += 1;
@@ -121,7 +128,7 @@ $(document).ready(function() {
     if ('$checkedDefenders.fil') {
         $checkedDefenders.change(function() {
             if (this.checked) {
-
+                reInitializeTotal();
                 numD += 1;
                 totalSelected += 1;
 
@@ -148,7 +155,7 @@ $(document).ready(function() {
     if ('$checkedMids.fil') {
         $checkedMids.change(function() {
             if (this.checked) {
-
+                reInitializeTotal();
                 numM += 1;
                 totalSelected += 1;
 
@@ -175,7 +182,7 @@ $(document).ready(function() {
     if ('$checkedAttackers.fil') {
         $checkedAttackers.change(function() {
             if (this.checked) {
-
+                reInitializeTotal();
                 numA += 1;
                 totalSelected += 1;
 
@@ -201,6 +208,7 @@ $(document).ready(function() {
 
         $checkboxes.change(function() {
             // Update validate button state
+
             if (totalSelected < 26) {
                 $("#validateButton").prop('disabled', true);
             } else {
