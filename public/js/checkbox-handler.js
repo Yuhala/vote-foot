@@ -116,7 +116,7 @@ $(document).ready(function() {
                 totalSelected -= 1;
             }
 
-            if (numG == 6) {
+            if (numG == 5) {
                 numG = 1;
             }
             $("#numSelectedGoalies").text(numG);
