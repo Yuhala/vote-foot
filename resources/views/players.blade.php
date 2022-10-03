@@ -51,12 +51,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         /* Div percentages for player rows */
         #player_container {}
 
-        .row {
+        .rowx{
             display: flex;
             /* equal height of the children */
         }
 
-        .col {
+        .colx{
             flex: 1;
             /* additionally, equal width */
 
