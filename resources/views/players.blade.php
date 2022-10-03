@@ -164,7 +164,7 @@ desired effect
 
                             <div style="text-align:center;padding-bottom:20px">
 
-                                <h3>Sélectionnez quatre (4) gardiens: <span id="numSelectedGoalies">0</span>/4 </h3>
+                                <h3>Sélectionnez 4 gardiens: <span id="numSelectedGoalies">0</span>/4 </h3>
 
                             </div>
 
@@ -225,7 +225,7 @@ desired effect
                             <!-- Your Page Content Here -->
 
                             <div style="text-align:center;padding-bottom:20px">
-                                <h3>Sélectionnez neuf (9) défenseurs: <span id="numSelectedDefenders">0</span>/9 </h3>
+                                <h3>Sélectionnez 9 défenseurs: <span id="numSelectedDefenders">0</span>/9 </h3>
                             </div>
 
                             @foreach ($defenders->chunk(4) as $defenseChunk)
@@ -280,7 +280,7 @@ desired effect
                             <!-- Your Page Content Here -->
 
                             <div style="text-align:center;padding-bottom:20px">
-                                <h3>Sélectionnez six (6) milieux: <span id="numSelectedMids">0</span>/6 </h3>
+                                <h3>Sélectionnez 6 milieux: <span id="numSelectedMids">0</span>/6 </h3>
                             </div>
 
                             @foreach ($midfielders->chunk(4) as $midfieldChunk)
@@ -335,7 +335,7 @@ desired effect
                             <!-- Your Page Content Here -->
 
                             <div style="text-align:center;padding-bottom:20px">
-                                <h3>Sélectionnez sept (7) attaquants: <span id="numSelectedAttackers">0</span>/7 </h3>
+                                <h3>Sélectionnez 7 attaquants: <span id="numSelectedAttackers">0</span>/7 </h3>
                             </div>
 
                             @foreach ($attackers->chunk(4) as $attackChunk)
