@@ -265,6 +265,7 @@ $(form).on('submit', function(event) {
 
 $("#validateButton").click(function() {
 
+    if (totalSelected == 26 || numG == 4 || numD == 9 || numM == 6 || numA == 7) {
         totalSelected = 0;
         numG = 0;
         numD = 0;
@@ -277,45 +278,49 @@ $("#validateButton").click(function() {
         $("#numSelectedAttackers").text(0);
 
 
-        // if (totalSelected < 26) {
-        //     alert(errorMessage);
-        // } else {
-        //     if (voteValidated) {
-        //         alert("Votes déjà Validés!")
-        //     } else {
-        //         // Get all selected player ids
-        //         $("input:checkbox[type=checkbox]:checked").each(function() { selectedIds.push($(this).val()); });
-        //         voteValidated = true;
-
-        //         var stringedIds = JSON.stringify(selectedIds);
-        //         // alert(stringedIds);
-
-        //         // Send data to Player Controller
-        //         var token = $("input[name='_token']").val();
-        //         var url = $(this).attr("data-url");
-
-
-        //alert(">>>>>>>>>>> About to call AJAX >>>>>>>> ");
-        //_token: '{{ csrf_token() }}',
-        // $.ajax({
-        //     header: {
-        //         'X-CSRF-TOKEN': token
-        //     },
-        //     url: url,
-        //     method: "POST",
-        //     data: {
-        //         _token: token,
-        //         dataType: 'json',
-        //         contentType: 'application/json',
-        //         'stringedIds': stringedIds,
-        //         success: function() {
-        //             window.alert(url);
-        //         }
-        //     }
-
-
-        // });
     }
+});
+
+
+// if (totalSelected < 26) {
+//     alert(errorMessage);
+// } else {
+//     if (voteValidated) {
+//         alert("Votes déjà Validés!")
+//     } else {
+//         // Get all selected player ids
+//         $("input:checkbox[type=checkbox]:checked").each(function() { selectedIds.push($(this).val()); });
+//         voteValidated = true;
+
+//         var stringedIds = JSON.stringify(selectedIds);
+//         // alert(stringedIds);
+
+//         // Send data to Player Controller
+//         var token = $("input[name='_token']").val();
+//         var url = $(this).attr("data-url");
+
+
+//alert(">>>>>>>>>>> About to call AJAX >>>>>>>> ");
+//_token: '{{ csrf_token() }}',
+// $.ajax({
+//     header: {
+//         'X-CSRF-TOKEN': token
+//     },
+//     url: url,
+//     method: "POST",
+//     data: {
+//         _token: token,
+//         dataType: 'json',
+//         contentType: 'application/json',
+//         'stringedIds': stringedIds,
+//         success: function() {
+//             window.alert(url);
+//         }
+//     }
+
+
+// });
+}
 
 }
 
