@@ -65,12 +65,19 @@ $(document).ready(function() {
 
         $checkboxes.change(function() {
             // Update validate button state
-            if (totalSelected == 26) {
+            if (totalSelected > 26 || numG > 4 || numD > 9 || numM > 6 || numA > 7) {
                 totalSelected = 0;
                 numG = 0;
                 numD = 0;
                 numM = 0;
                 numA = 0;
+
+                $("#numSelectedGoalies").text(0);
+                $("#numSelectedDefenders").text(0);
+                $("#numSelectedMids").text(0);
+                $("#numSelectedAttackers").text(0);
+
+
             }
         });
     }
