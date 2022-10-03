@@ -13,8 +13,22 @@ var totalSelected = 0;
 var voteValidated = false;
 
 var total = 0;
+var numG = 0;
+var numD = 0;
+var numM = 0;
+var numA = 0;
+
+$(document).on("pageshow", function() {
+    totalSelected = 0;
+    numG = 0;
+    numD = 0;
+    numM = 0;
+    numA = 0;
+});
 
 $(document).ready(function() {
+
+
     // Uncheck checkboxes on page reload
     $('input:checkbox').prop('checked', false);
 
@@ -26,22 +40,22 @@ $(document).ready(function() {
     var $checkedGoalies = $('input[name="idsGoalies[]"]');
 
     var textG = $("#numSelectedGoalies").text();
-    var numG = 0; //parseInt(textG);
+    //var numG = 0; //parseInt(textG);
 
 
     var $checkedDefenders = $('input[name="idsDefenders[]"]');
     var textD = $("#numSelectedDefenders").text();
-    var numD = 0; //parseInt(textD);
+    //var numD = 0; //parseInt(textD);
 
 
     var $checkedMids = $('input[name="idsMids[]"]');
     var textM = $("#numSelectedMids").text();
-    var numM = 0; //parseInt(textM);
+    //var numM = 0; //parseInt(textM);
 
 
     var $checkedAttackers = $('input[name="idsAttackers[]"]');
     var textA = $("#numSelectedAttackers").text();
-    var numA = 0; //parseInt(textA);
+    //var numA = 0; //parseInt(textA);
 
     /**
      * Initialize variables in case you are reloading the page or 
