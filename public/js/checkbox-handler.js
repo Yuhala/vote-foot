@@ -109,6 +109,9 @@ $(document).ready(function() {
                 totalSelected -= 1;
             }
 
+            if (numG == 6) {
+                numG = 1;
+            }
             $("#numSelectedGoalies").text(numG);
 
         });
@@ -132,6 +135,9 @@ $(document).ready(function() {
                 totalSelected -= 1;
             }
 
+            if (numD == 10) {
+                numD = 1;
+            }
             $("#numSelectedDefenders").text(numD);
 
         });
@@ -156,6 +162,9 @@ $(document).ready(function() {
                 totalSelected -= 1;
             }
 
+            if (numM == 7) {
+                numM = 1;
+            }
             $("#numSelectedMids").text(numM);
 
         });
@@ -180,6 +189,9 @@ $(document).ready(function() {
                 totalSelected -= 1;
             }
 
+            if (numA == 8) {
+                numA = 1;
+            }
             $("#numSelectedAttackers").text(numA);
 
         });
