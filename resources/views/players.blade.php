@@ -51,17 +51,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
         /* Div percentages for player rows */
         #player_container {}
 
-        .rowx{
+        .rowx {
             display: flex;
             /* equal height of the children */
         }
 
-        .colx{
+        .colx {
             flex: 1;
             /* additionally, equal width */
 
             padding: 1em;
             border: solid;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wc_div {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            padding-bottom: 40px;
+        }
+
+        #wc_div img {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            right: 0;
+            bottom: 200px;
+            margin: auto;
         }
     </style>
 
@@ -112,14 +135,14 @@ desired effect
                 <section class="content">
                     <!-- Your Page Content Here -->
 
-                    <div style="text-align:center;padding-bottom:40px" class="center">
-                        
-                        <img id="wc_imgxx" src="images/wc_2022.png" alt="WC 2022">
-                        <br><br>
-                        <!--<h1>Faites votre liste des Lions Indomptables pour la Coupe du monde 2022!</h1>-->
-                        <h1>Choisissez vos Lions!</h1>
-                        <br><br>
+                    <div id="wc_div" class="center">
 
+                        <img id="wc_imgxx" src="images/wc_2022.png" alt="WC 2022">
+                        
+                        <!--<h1>Faites votre liste des Lions Indomptables pour la Coupe du monde 2022!</h1>-->
+                        <h1 style="text-align:center;padding-bottom:300px;">Choisissez vos Lions!</h1>
+                        <br><br>
+                        
 
                     </div>
                 </section><!-- /.content -->
@@ -131,7 +154,7 @@ desired effect
 
                 <div id="">
                     <!-- Content Wrapper: goalkeepers -->
-                    <div class="content-wrapper" >
+                    <div class="content-wrapper">
 
                         @include('adminlte::layouts.partials.contentheader')
 
