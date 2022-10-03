@@ -47,17 +47,32 @@ $(document).ready(function() {
      * Initialize variables in case you are reloading the page or 
      * hit the back button.
      */
-    if (numG != 0) {
-        numG = 0;
-    }
-    if (numD != 0) {
-        numD = 0;
-    }
-    if (numM != 0) {
-        numM = 0;
-    }
-    if (numA != 0) {
-        numA = 0;
+    // if (numG != 0) {
+    //     numG = 0;
+    // }
+    // if (numD != 0) {
+    //     numD = 0;
+    // }
+    // if (numM != 0) {
+    //     numM = 0;
+    // }
+    // if (numA != 0) {
+    //     numA = 0;
+    // }
+
+    //Initialize all counters on page reload or back button.
+    if ('$checkboxes.fil') {
+
+        $checkboxes.change(function() {
+            // Update validate button state
+            if (totalSelected == 26) {
+                totalSelected = 0;
+                numG = 0;
+                numD = 0;
+                numM = 0;
+                numA = 0;
+            }
+        });
     }
 
 
@@ -66,7 +81,9 @@ $(document).ready(function() {
         $checkedGoalies.change(function() {
             if (this.checked) {
 
+
                 numG += 1;
+
                 totalSelected += 1;
 
                 if ($checkedGoalies.filter(':checked').length == 4) {
@@ -89,7 +106,10 @@ $(document).ready(function() {
         $checkedDefenders.change(function() {
             if (this.checked) {
 
+
+
                 numD += 1;
+
                 totalSelected += 1;
 
                 if ($checkedDefenders.filter(':checked').length == 9) {
@@ -113,7 +133,9 @@ $(document).ready(function() {
         $checkedMids.change(function() {
             if (this.checked) {
 
+
                 numM += 1;
+
                 totalSelected += 1;
 
                 if ($checkedMids.filter(':checked').length == 6) {
