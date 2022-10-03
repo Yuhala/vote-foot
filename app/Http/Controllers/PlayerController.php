@@ -89,6 +89,19 @@ class PlayerController extends Controller
         $mids = session()->get('midfielders');
         $atks = session()->get('attackers');
 
+        //$email = session()->get('useremail');
+
+       /**
+        * Get user email in the session and test if they exist already in the db. 
+        * For simplicity, we just want to avoid people voting too many times. 
+        * So we require a valid email. No email verification is done though.
+        */
+        // DB::table('users')->insert([
+        //     'name' => $email, 
+        //     'email' => $email, 
+        //     'password' => $email           
+        // ]);
+
         /**
          * Null test: prevents any weird PHP errors on screen, 
          * just redirect to the voting page.

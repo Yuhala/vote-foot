@@ -138,11 +138,11 @@ desired effect
                     <div id="wc_div" class="center">
 
                         <img id="wc_imgxx" src="images/wc_2022.png" alt="WC 2022">
-                        
+
                         <!--<h1>Faites votre liste des Lions Indomptables pour la Coupe du monde 2022!</h1>-->
                         <h1 style="text-align:center;padding-bottom:300px;">Choisissez vos Lions!</h1>
                         <br><br>
-                        
+
 
                     </div>
                 </section><!-- /.content -->
@@ -194,7 +194,7 @@ desired effect
                                                         <div class="icheck-primary">
 
                                                             <input type="checkbox" value="{{ $goalie->id }}"
-                                                                name="idsGoalies[]" id="checkbox-goalie">
+                                                                name="idsGoalies[]" id="checkbox-goalie" autocomplete="off">
 
                                                             <span class="text"> Choisir</span>
 
@@ -252,7 +252,7 @@ desired effect
                                                         <div class="icheck-primary">
 
                                                             <input type="checkbox" value="{{ $defender->id }}"
-                                                                name="idsDefenders[]" id="">
+                                                                name="idsDefenders[]" id="" autocomplete="off">
 
                                                             <span class="text"> Choisir</span>
                                                         </div>
@@ -307,7 +307,7 @@ desired effect
                                                         <div class="icheck-primary">
 
                                                             <input type="checkbox" value="{{ $midfielder->id }}"
-                                                                name="idsMids[]" id="">
+                                                                name="idsMids[]" id="" autocomplete="off">
 
                                                             <span class="text"> Choisir</span>
                                                         </div>
@@ -362,7 +362,7 @@ desired effect
                                                         <div class="icheck-primary">
 
                                                             <input type="checkbox" value="{{ $attacker->id }}"
-                                                                name="idsAttackers[]" id="todoCheck1">
+                                                                name="idsAttackers[]" id="todoCheck1" autocomplete="off">
 
                                                             <span class="text"> Choisir</span>
                                                         </div>
@@ -381,6 +381,7 @@ desired effect
                         </section><!-- /.content -->
                     </div><!-- /.content-wrapper -->
 
+                
 
 
                     <!-- Content Wrapper: vote validate button -->
@@ -391,6 +392,8 @@ desired effect
                         <!-- Main content -->
                         <section class="content">
                             <!-- Your Page Content Here -->
+
+
 
                             <div class="center">
                                 <button type="submit" class="btn btn-primary btn-block btn-lg" id="validateButton"

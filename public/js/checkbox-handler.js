@@ -15,6 +15,9 @@ var voteValidated = false;
 var total = 0;
 
 $(document).ready(function() {
+    // Uncheck checkboxes on page reload
+    $('input:checkbox').prop('checked', false);
+
     // All checked boxes
     var $checkboxes = $('input[type=checkbox]');
 
