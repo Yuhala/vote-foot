@@ -43,6 +43,23 @@ $(document).ready(function() {
     var textA = $("#numSelectedAttackers").text();
     var numA = parseInt(textA);
 
+    /**
+     * Initialize variables in case you are reloading the page or 
+     * hit the back button.
+     */
+    if (numG != 0) {
+        numG = 0;
+    }
+    if (numD != 0) {
+        numD = 0;
+    }
+    if (numM != 0) {
+        numM = 0;
+    }
+    if (numA != 0) {
+        numA = 0;
+    }
+
 
     // Handle goalie checkboxes
     if ('$checkedGoalies.fil') {
