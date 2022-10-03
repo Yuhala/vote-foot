@@ -26,39 +26,28 @@ $(document).ready(function() {
     var $checkedGoalies = $('input[name="idsGoalies[]"]');
 
     var textG = $("#numSelectedGoalies").text();
-    var numG = parseInt(textG);
+    var numG = 0; //parseInt(textG);
 
 
     var $checkedDefenders = $('input[name="idsDefenders[]"]');
     var textD = $("#numSelectedDefenders").text();
-    var numD = parseInt(textD);
+    var numD = 0; //parseInt(textD);
 
 
     var $checkedMids = $('input[name="idsMids[]"]');
     var textM = $("#numSelectedMids").text();
-    var numM = parseInt(textM);
+    var numM = 0; //parseInt(textM);
 
 
     var $checkedAttackers = $('input[name="idsAttackers[]"]');
     var textA = $("#numSelectedAttackers").text();
-    var numA = parseInt(textA);
+    var numA = 0; //parseInt(textA);
 
     /**
      * Initialize variables in case you are reloading the page or 
      * hit the back button.
      */
-    window.addEventListener("hashchange", function(e) {
-        totalSelected = 0;
-        numG = 0;
-        numD = 0;
-        numM = 0;
-        numA = 0;
 
-        $("#numSelectedGoalies").text(0);
-        $("#numSelectedDefenders").text(0);
-        $("#numSelectedMids").text(0);
-        $("#numSelectedAttackers").text(0);
-    })
 
     //Initialize all counters on page reload or back button.
     // if ('$checkboxes.fil') {
@@ -262,42 +251,5 @@ $(document).ready(function() {
     });
 
 
-    // if (totalSelected < 26) {
-    //     alert(errorMessage);
-    // } else {
-    //     if (voteValidated) {
-    //         alert("Votes déjà Validés!")
-    //     } else {
-    //         // Get all selected player ids
-    //         $("input:checkbox[type=checkbox]:checked").each(function() { selectedIds.push($(this).val()); });
-    //         voteValidated = true;
 
-    //         var stringedIds = JSON.stringify(selectedIds);
-    //         // alert(stringedIds);
-
-    //         // Send data to Player Controller
-    //         var token = $("input[name='_token']").val();
-    //         var url = $(this).attr("data-url");
-
-
-    //alert(">>>>>>>>>>> About to call AJAX >>>>>>>> ");
-    //_token: '{{ csrf_token() }}',
-    // $.ajax({
-    //     header: {
-    //         'X-CSRF-TOKEN': token
-    //     },
-    //     url: url,
-    //     method: "POST",
-    //     data: {
-    //         _token: token,
-    //         dataType: 'json',
-    //         contentType: 'application/json',
-    //         'stringedIds': stringedIds,
-    //         success: function() {
-    //             window.alert(url);
-    //         }
-    //     }
-
-
-    // });
 });
