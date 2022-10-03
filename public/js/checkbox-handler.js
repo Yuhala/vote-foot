@@ -47,18 +47,18 @@ $(document).ready(function() {
      * Initialize variables in case you are reloading the page or 
      * hit the back button.
      */
-    // window.addEventListener("hashchange", function(e) {
-    //     totalSelected = 0;
-    //     numG = 0;
-    //     numD = 0;
-    //     numM = 0;
-    //     numA = 0;
+    window.addEventListener("hashchange", function(e) {
+        totalSelected = 0;
+        numG = 0;
+        numD = 0;
+        numM = 0;
+        numA = 0;
 
-    //     $("#numSelectedGoalies").text(0);
-    //     $("#numSelectedDefenders").text(0);
-    //     $("#numSelectedMids").text(0);
-    //     $("#numSelectedAttackers").text(0);
-    // })
+        $("#numSelectedGoalies").text(0);
+        $("#numSelectedDefenders").text(0);
+        $("#numSelectedMids").text(0);
+        $("#numSelectedAttackers").text(0);
+    })
 
     //Initialize all counters on page reload or back button.
     // if ('$checkboxes.fil') {
@@ -256,7 +256,7 @@ $(document).ready(function() {
 
     //reinitialize counters here
 
-    $("#validateButton").click(function() {
+    $("#validateButtonxx").click(function() {
 
 
     });
