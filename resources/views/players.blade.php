@@ -6,7 +6,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 
 @section('htmlheader')
-    @include('adminlte::layouts.partials.htmlheader')
+@include('adminlte::layouts.partials.htmlheader')
 @show
 
 
@@ -92,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
+    <script src="js/checkbox-handler.js"></script>
 
 
 </head>
@@ -170,47 +170,44 @@ desired effect
 
 
                             @foreach ($goalies->chunk(4) as $goalieChunk)
-                                <div class="row">
-                                    @foreach ($goalieChunk as $goalie)
-                                        <div class="col-lg-3">
-                                            <div class="thumbnail">
-                                                <!--<img src="{{ $goalie->imagePath }}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Player">-->
-                                                <img src="{{ $goalie->imagePath }}"
-                                                    style="float:left;width: 200px;height: 200px;object-fit: cover;"
-                                                    alt="Player">
+                            <div class="row">
+                                @foreach ($goalieChunk as $goalie)
+                                <div class="col-lg-3">
+                                    <div class="thumbnail">
+                                        <!--<img src="{{ $goalie->imagePath }}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Player">-->
+                                        <img src="{{ $goalie->imagePath }}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Player">
 
-                                                <div class="caption">
-                                                    <h3>{{ $goalie->playerName }}</h3>
-                                                    <p class="description">
-                                                        &nbsp Club: {{ $goalie->clubName }}
-                                                    </p>
-                                                    <div class="clearfix">
-                                                        <div class="pull-left price">&nbsp Age: {{ $goalie->playerAge }}
-                                                        </div>
-                                                        <br>
-                                                        <br>
+                                        <div class="caption">
+                                            <h3>{{ $goalie->playerName }}</h3>
+                                            <p class="description">
+                                                &nbsp Club: {{ $goalie->clubName }}
+                                            </p>
+                                            <div class="clearfix">
+                                                <div class="pull-left price">&nbsp Age: {{ $goalie->playerAge }}
+                                                </div>
+                                                <br>
+                                                <br>
 
 
-                                                        <div class="icheck-primary">
+                                                <div class="icheck-primary">
 
-                                                            <input type="checkbox" value="{{ $goalie->id }}"
-                                                                name="idsGoalies[]" id="checkbox-goalie" autocomplete="off">
+                                                    <input type="checkbox" value="{{ $goalie->id }}" name="idsGoalies[]" id="checkbox-goalie" autocomplete="off">
 
-                                                            <span class="text"> Choisir</span>
-
-                                                        </div>
-
-
-                                                    </div>
-
-
+                                                    <span class="text"> Choisir</span>
 
                                                 </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
 
+
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
                                 </div>
+                                @endforeach
+
+                            </div>
                             @endforeach
                         </section><!-- /.content -->
                     </div><!-- /.content-wrapper -->
@@ -229,43 +226,40 @@ desired effect
                             </div>
 
                             @foreach ($defenders->chunk(4) as $defenseChunk)
-                                <div class="row">
-                                    @foreach ($defenseChunk as $defender)
-                                        <div class="col-lg-3">
-                                            <div class="thumbnail">
-                                                <img src="{{ $defender->imagePath }}"
-                                                    style="float:left;width: 200px;height: 200px;object-fit: cover;"
-                                                    alt="Book">
-                                                <div class="caption">
-                                                    <h3>{{ $defender->playerName }}</h3>
-                                                    <p class="description">
-                                                        &nbsp Club: {{ $defender->clubName }}
-                                                    </p>
-                                                    <div class="clearfix">
-                                                        <div class="pull-left price">&nbsp Age:
-                                                            {{ $defender->playerAge }}
-                                                        </div>
-
-                                                        <br>
-                                                        <br>
-
-                                                        <div class="icheck-primary">
-
-                                                            <input type="checkbox" value="{{ $defender->id }}"
-                                                                name="idsDefenders[]" id="" autocomplete="off">
-
-                                                            <span class="text"> Choisir</span>
-                                                        </div>
-
-
-
-                                                    </div>
+                            <div class="row">
+                                @foreach ($defenseChunk as $defender)
+                                <div class="col-lg-3">
+                                    <div class="thumbnail">
+                                        <img src="{{ $defender->imagePath }}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Book">
+                                        <div class="caption">
+                                            <h3>{{ $defender->playerName }}</h3>
+                                            <p class="description">
+                                                &nbsp Club: {{ $defender->clubName }}
+                                            </p>
+                                            <div class="clearfix">
+                                                <div class="pull-left price">&nbsp Age:
+                                                    {{ $defender->playerAge }}
                                                 </div>
+
+                                                <br>
+                                                <br>
+
+                                                <div class="icheck-primary">
+
+                                                    <input type="checkbox" value="{{ $defender->id }}" name="idsDefenders[]" id="" autocomplete="off">
+
+                                                    <span class="text"> Choisir</span>
+                                                </div>
+
+
+
                                             </div>
                                         </div>
-                                    @endforeach
-
+                                    </div>
                                 </div>
+                                @endforeach
+
+                            </div>
                             @endforeach
                         </section><!-- /.content -->
                     </div><!-- /.content-wrapper -->
@@ -284,43 +278,40 @@ desired effect
                             </div>
 
                             @foreach ($midfielders->chunk(4) as $midfieldChunk)
-                                <div class="row">
-                                    @foreach ($midfieldChunk as $midfielder)
-                                        <div class="col-lg-3">
-                                            <div class="thumbnail">
-                                                <img src="{{ $midfielder->imagePath }}"
-                                                    style="float:left;width: 200px;height: 200px;object-fit: cover;"
-                                                    alt="Player">
-                                                <div class="caption">
-                                                    <h3>{{ $midfielder->playerName }}</h3>
-                                                    <p class="description">
-                                                        &nbsp Club: {{ $midfielder->clubName }}
-                                                    </p>
-                                                    <div class="clearfix">
-                                                        <div class="pull-left price">&nbsp Age:
-                                                            {{ $midfielder->playerAge }}
-                                                        </div>
-
-                                                        <br>
-                                                        <br>
-
-                                                        <div class="icheck-primary">
-
-                                                            <input type="checkbox" value="{{ $midfielder->id }}"
-                                                                name="idsMids[]" id="" autocomplete="off">
-
-                                                            <span class="text"> Choisir</span>
-                                                        </div>
-
-
-
-                                                    </div>
+                            <div class="row">
+                                @foreach ($midfieldChunk as $midfielder)
+                                <div class="col-lg-3">
+                                    <div class="thumbnail">
+                                        <img src="{{ $midfielder->imagePath }}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Player">
+                                        <div class="caption">
+                                            <h3>{{ $midfielder->playerName }}</h3>
+                                            <p class="description">
+                                                &nbsp Club: {{ $midfielder->clubName }}
+                                            </p>
+                                            <div class="clearfix">
+                                                <div class="pull-left price">&nbsp Age:
+                                                    {{ $midfielder->playerAge }}
                                                 </div>
+
+                                                <br>
+                                                <br>
+
+                                                <div class="icheck-primary">
+
+                                                    <input type="checkbox" value="{{ $midfielder->id }}" name="idsMids[]" id="" autocomplete="off">
+
+                                                    <span class="text"> Choisir</span>
+                                                </div>
+
+
+
                                             </div>
                                         </div>
-                                    @endforeach
-
+                                    </div>
                                 </div>
+                                @endforeach
+
+                            </div>
                             @endforeach
                         </section><!-- /.content -->
                     </div><!-- /.content-wrapper -->
@@ -339,49 +330,46 @@ desired effect
                             </div>
 
                             @foreach ($attackers->chunk(4) as $attackChunk)
-                                <div class="row">
-                                    @foreach ($attackChunk as $attacker)
-                                        <div class="col-lg-3">
-                                            <div class="thumbnail">
-                                                <img src="{{ $attacker->imagePath }}"
-                                                    style="float:left;width: 200px;height: 200px;object-fit: cover;"
-                                                    alt="Book">
-                                                <div class="caption">
-                                                    <h3>{{ $attacker->playerName }}</h3>
-                                                    <p class="description">
-                                                        &nbsp Club: {{ $attacker->clubName }}
-                                                    </p>
-                                                    <div class="clearfix">
-                                                        <div class="pull-left price">&nbsp Age:
-                                                            {{ $attacker->playerAge }}
-                                                        </div>
-
-                                                        <br>
-                                                        <br>
-
-                                                        <div class="icheck-primary">
-
-                                                            <input type="checkbox" value="{{ $attacker->id }}"
-                                                                name="idsAttackers[]" id="todoCheck1" autocomplete="off">
-
-                                                            <span class="text"> Choisir</span>
-                                                        </div>
-
-
-
-
-                                                    </div>
+                            <div class="row">
+                                @foreach ($attackChunk as $attacker)
+                                <div class="col-lg-3">
+                                    <div class="thumbnail">
+                                        <img src="{{ $attacker->imagePath }}" style="float:left;width: 200px;height: 200px;object-fit: cover;" alt="Book">
+                                        <div class="caption">
+                                            <h3>{{ $attacker->playerName }}</h3>
+                                            <p class="description">
+                                                &nbsp Club: {{ $attacker->clubName }}
+                                            </p>
+                                            <div class="clearfix">
+                                                <div class="pull-left price">&nbsp Age:
+                                                    {{ $attacker->playerAge }}
                                                 </div>
+
+                                                <br>
+                                                <br>
+
+                                                <div class="icheck-primary">
+
+                                                    <input type="checkbox" value="{{ $attacker->id }}" name="idsAttackers[]" id="todoCheck1" autocomplete="off">
+
+                                                    <span class="text"> Choisir</span>
+                                                </div>
+
+
+
+
                                             </div>
                                         </div>
-                                    @endforeach
-
+                                    </div>
                                 </div>
+                                @endforeach
+
+                            </div>
                             @endforeach
                         </section><!-- /.content -->
                     </div><!-- /.content-wrapper -->
 
-                
+
 
 
                     <!-- Content Wrapper: vote validate button -->
@@ -396,8 +384,7 @@ desired effect
 
 
                             <div class="center">
-                                <button type="submit" class="btn btn-primary btn-block btn-lg" id="validateButton"
-                                    disabled="disabled">
+                                <button type="submit" class="btn btn-primary btn-block btn-lg" id="validateButton" disabled="disabled">
                                     Valider ma Sélection
                                 </button>
 
@@ -433,10 +420,10 @@ desired effect
 
 
     @section('scripts')
-        @include('adminlte::layouts.partials.scripts')
+    @include('adminlte::layouts.partials.scripts')
     @show
 
-    <script src="js/checkbox-handler.js"></script>
+    <!--<script src="js/checkbox-handler.js"></script>-->
 </body>
 
 </html>

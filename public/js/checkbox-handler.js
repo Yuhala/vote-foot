@@ -35,6 +35,8 @@ $(document).on("pageshow", function() {
     $("#numSelectedDefenders").text(0);
     $("#numSelectedMids").text(0);
     $("#numSelectedAttackers").text(0);
+
+    $('input:checkbox').prop('checked', false);
 });
 
 $(document).ready(function() {
@@ -101,7 +103,7 @@ $(document).ready(function() {
     if ('$checkedGoalies.fil') {
         $checkedGoalies.change(function() {
             if (this.checked) {
-                reInitializeTotal();
+                //reInitializeTotal();
 
                 numG += 1;
                 totalSelected += 1;
@@ -128,7 +130,7 @@ $(document).ready(function() {
     if ('$checkedDefenders.fil') {
         $checkedDefenders.change(function() {
             if (this.checked) {
-                reInitializeTotal();
+                //reInitializeTotal();
                 numD += 1;
                 totalSelected += 1;
 
@@ -155,7 +157,7 @@ $(document).ready(function() {
     if ('$checkedMids.fil') {
         $checkedMids.change(function() {
             if (this.checked) {
-                reInitializeTotal();
+                //reInitializeTotal();
                 numM += 1;
                 totalSelected += 1;
 
@@ -182,7 +184,7 @@ $(document).ready(function() {
     if ('$checkedAttackers.fil') {
         $checkedAttackers.change(function() {
             if (this.checked) {
-                reInitializeTotal();
+                //reInitializeTotal();
                 numA += 1;
                 totalSelected += 1;
 
