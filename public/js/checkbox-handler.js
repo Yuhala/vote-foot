@@ -42,7 +42,8 @@ $(document).on("pageshow", function () {
         if ($(this).prop("checked") == true) {
             $(this).prop("checked") = false;
         } else {
-            $(this).prop("checked") = false;
+            // the unchecked boxes in this case will be disabled
+            ($this).prop('disabled', false);
         }
     });
 });
@@ -56,9 +57,12 @@ $(document).ready(function () {
     $('input[type=checkbox]').each(function () {
         if ($(this).prop("checked") == true) {
             $(this).prop("checked") = false;
-        } else {
-            $(this).prop("checked") = false;
         }
+        else {
+            // the unchecked boxes in this case will be disabled
+            ($this).prop('disabled', false);
+        }
+
     });
 
     // All checked boxes
