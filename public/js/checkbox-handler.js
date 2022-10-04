@@ -231,10 +231,20 @@ $(document).ready(function () {
         $checkboxes.change(function () {
             // Update validate button state
 
+            if (totalSelected > 26) {
+                $("#validateButton").prop('disabled', true);
+                alert("Votes déjà Validés, Merci!");
+
+            }
+
             if (totalSelected < 26) {
                 $("#validateButton").prop('disabled', true);
-            } else {
+            }
+
+            if (totalSelected == 26) {
                 $("#validateButton").prop('disabled', false);
+                // reinitialize total
+                totalSelected = 0;
             }
         });
     }
