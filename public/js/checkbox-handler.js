@@ -24,7 +24,7 @@ function reInitializeTotal() {
     }
 }
 
-$(document).on("pageshow", function() {
+$(document).on("pageshow", function () {
     totalSelected = 0;
     numG = 0;
     numD = 0;
@@ -37,13 +37,29 @@ $(document).on("pageshow", function() {
     $("#numSelectedAttackers").text(0);
 
     $('input:checkbox').prop('checked', false);
+
+    $('input[type=checkbox]').each(function () {
+        if ($(this).prop("checked") == true) {
+            $(this).prop("checked") = false;
+        } else {
+            $(this).prop("checked") = false;
+        }
+    });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
 
 
     // Uncheck checkboxes on page reload
     $('input:checkbox').prop('checked', false);
+
+    $('input[type=checkbox]').each(function () {
+        if ($(this).prop("checked") == true) {
+            $(this).prop("checked") = false;
+        } else {
+            $(this).prop("checked") = false;
+        }
+    });
 
     // All checked boxes
     var $checkboxes = $('input[type=checkbox]');
@@ -101,7 +117,7 @@ $(document).ready(function() {
 
     // Handle goalie checkboxes
     if ('$checkedGoalies.fil') {
-        $checkedGoalies.change(function() {
+        $checkedGoalies.change(function () {
             if (this.checked) {
                 //reInitializeTotal();
 
@@ -128,7 +144,7 @@ $(document).ready(function() {
 
     // Handle defener checkboxes
     if ('$checkedDefenders.fil') {
-        $checkedDefenders.change(function() {
+        $checkedDefenders.change(function () {
             if (this.checked) {
                 //reInitializeTotal();
                 numD += 1;
@@ -155,7 +171,7 @@ $(document).ready(function() {
 
     // Handle mid-fielder checkboxes
     if ('$checkedMids.fil') {
-        $checkedMids.change(function() {
+        $checkedMids.change(function () {
             if (this.checked) {
                 //reInitializeTotal();
                 numM += 1;
@@ -182,7 +198,7 @@ $(document).ready(function() {
 
     // Handle mid-fielder checkboxes
     if ('$checkedAttackers.fil') {
-        $checkedAttackers.change(function() {
+        $checkedAttackers.change(function () {
             if (this.checked) {
                 //reInitializeTotal();
                 numA += 1;
@@ -208,7 +224,7 @@ $(document).ready(function() {
 
     if ('$checkboxes.fil') {
 
-        $checkboxes.change(function() {
+        $checkboxes.change(function () {
             // Update validate button state
 
             if (totalSelected < 26) {
@@ -235,7 +251,7 @@ $(document).ready(function() {
 
     var form = $("#validate-vote-formxx");
 
-    $(form).on('submit', function(event) {
+    $(form).on('submit', function (event) {
         event.preventDefault();
 
 
@@ -247,7 +263,7 @@ $(document).ready(function() {
                 alert("Votes déjà Validés!")
             } else {
                 // Get all selected player ids
-                $("input:checkbox[type=checkbox]:checked").each(function() { selectedIds.push($(this).val()); });
+                $("input:checkbox[type=checkbox]:checked").each(function () { selectedIds.push($(this).val()); });
                 voteValidated = true;
             }
             var stringedIds = JSON.stringify(selectedIds);
@@ -271,7 +287,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     contentType: 'application/json',
                     'stringedIds': stringedIds,
-                    success: function() {
+                    success: function () {
                         window.alert(url);
 
                     }
@@ -286,7 +302,7 @@ $(document).ready(function() {
 
     //reinitialize counters here
 
-    $("#validateButtonxx").click(function() {
+    $("#validateButtonxx").click(function () {
 
 
     });
