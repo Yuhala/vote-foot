@@ -38,13 +38,13 @@ $(document).on("pageshow", function () {
 
     $('input:checkbox').prop('checked', false);
 
-    $('input[type=checkbox]').each(function () {
-        if ($(this).prop("checked") == true) {
-            $(this).prop("checked") = false;
-        } else {
-            $(this).prop("checked") = false;
-        }
-    });
+    // $('input[type=checkbox]').each(function () {
+    //     if ($(this).prop("checked") == true) {
+    //         $(this).prop("checked") = false;
+    //     } else {
+    //         $(this).prop("checked") = false;
+    //     }
+    // });
 });
 
 $(document).ready(function () {
@@ -53,13 +53,13 @@ $(document).ready(function () {
     // Uncheck checkboxes on page reload
     $('input:checkbox').prop('checked', false);
 
-    $('input[type=checkbox]').each(function () {
-        if ($(this).prop("checked") == true) {
-            $(this).prop("checked") = false;
-        } else {
-            $(this).prop("checked") = false;
-        }
-    });
+    // $('input[type=checkbox]').each(function () {
+    //     if ($(this).prop("checked") == true) {
+    //         $(this).prop("checked") = false;
+    //     } else {
+    //         $(this).prop("checked") = false;
+    //     }
+    // });
 
     // All checked boxes
     var $checkboxes = $('input[type=checkbox]');
@@ -225,13 +225,8 @@ $(document).ready(function () {
     if ('$checkboxes.fil') {
 
         $checkboxes.change(function () {
-            // Update validate button state
-             
-            if(totalSelected > 26){
-                $("#validateButton").prop('disabled', true);
-                alert("Votes déjà Validés, Merci!");
-                totalSelected = 0;
-            }
+            // Update validate button state            
+
 
             if (totalSelected < 26) {
                 $("#validateButton").prop('disabled', true);
