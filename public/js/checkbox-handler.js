@@ -42,8 +42,7 @@ $(document).on("pageshow", function () {
         if ($(this).prop("checked") == true) {
             $(this).prop("checked") = false;
         } else {
-            // the unchecked boxes in this case will be disabled
-            ($this).prop('disabled', false);
+            $(this).prop("checked") = false;
         }
     });
 });
@@ -57,12 +56,9 @@ $(document).ready(function () {
     $('input[type=checkbox]').each(function () {
         if ($(this).prop("checked") == true) {
             $(this).prop("checked") = false;
+        } else {
+            $(this).prop("checked") = false;
         }
-        else {
-            // the unchecked boxes in this case will be disabled
-            ($this).prop('disabled', false);
-        }
-
     });
 
     // All checked boxes
@@ -230,21 +226,17 @@ $(document).ready(function () {
 
         $checkboxes.change(function () {
             // Update validate button state
-
-            if (totalSelected > 26) {
+             
+            if(totalSelected > 26){
                 $("#validateButton").prop('disabled', true);
                 alert("Votes déjà Validés, Merci!");
-
+                totalSelected = 0;
             }
 
             if (totalSelected < 26) {
                 $("#validateButton").prop('disabled', true);
-            }
-
-            if (totalSelected == 26) {
+            } else {
                 $("#validateButton").prop('disabled', false);
-                // reinitialize total
-                totalSelected = 0;
             }
         });
     }
