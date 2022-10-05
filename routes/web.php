@@ -38,8 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/', [PlayerController::class, 'getIndex'])->name('index');
 Route::post('/', [PlayerController::class, 'getIndex'])->name('index');
 Route::get('/results', [PlayerController::class, 'getResults'])->name('results');
-Route::get('/validate-vote', [PlayerController::class, 'getResults'])->name('validate-vote-get');
-Route::post("validate-vote", [PlayerController::class, 'getVotes'])->name('validate-vote');
+//Route::get('/validate-vote', [PlayerController::class, 'getResults'])->name('validate-vote-get');
+Route::post('/validate-vote', [PlayerController::class, 'getVotes'])->name('validate-vote');
 
 
 

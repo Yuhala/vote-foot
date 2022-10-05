@@ -143,8 +143,8 @@ class PlayerController extends Controller
         // ---------------------- Update all goal keeper percentages ------------
         $gg = DB::table('players')->where('position', "=", 'goalie')->get();
         foreach($gg->toArray() as $g){
-            $gtp = ($g->numVotes) * 100;
-            $gPercent = $gtp/$gt;
+            $gtp = ($g->numVotes) * 100 * 4;
+            $gPercent = ($gtp)/$gt;
             $gPlayer = Player::find($g->id);
             $gPlayer->votePercent = $gPercent;
             $gPlayer->save();
@@ -156,7 +156,7 @@ class PlayerController extends Controller
         $dd = DB::table('players')->where('position', "=", 'defense')->get();
         foreach($dd->toArray() as $d){
             //$newPercent = 100 * (($d->numVotes)/$dt);
-            $dtp = ($d->numVotes) * 100;
+            $dtp = ($d->numVotes) * 100 * 9;
             $dPercent = $dtp/$dt;
             $defPlayer = Player::find($d->id);
             $defPlayer->votePercent = $dPercent;
@@ -168,7 +168,7 @@ class PlayerController extends Controller
         $mm = DB::table('players')->where('position', "=", 'middle')->get();
         foreach($mm->toArray() as $m){
             //$newPercent = 100 * (($m->numVotes)/$mt);
-            $mtp = ($m->numVotes) * 100;
+            $mtp = ($m->numVotes) * 100 * 6;
             $mPercent = $mtp/$mt;
             $midPlayer = Player::find($m->id);
             $midPlayer->votePercent = $mPercent;
@@ -181,7 +181,7 @@ class PlayerController extends Controller
         $aa = DB::table('players')->where('position', "=", 'attack')->get();
         foreach($aa->toArray() as $a){
             //$newPercent = 100 * (($a->numVotes)/$at);
-            $atp = ($a->numVotes) * 100;
+            $atp = ($a->numVotes) * 100 * 7;
             $aPercent = $atp/$at;
             $attPlayer = Player::find($a->id);
             $attPlayer->votePercent = $aPercent;
