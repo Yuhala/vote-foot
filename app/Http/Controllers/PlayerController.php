@@ -146,6 +146,9 @@ class PlayerController extends Controller
         foreach($gg->toArray() as $g){
             $gtp = ($g->numVotes) * 100 * 4;
             $gPercent = ($gtp)/$gt;
+            if($gPercent > 100){
+                $gPercent = 100.0;
+            }
             $gPlayer = Player::find($g->id);
             $gPlayer->votePercent = $gPercent;
             $gPlayer->save();
@@ -159,6 +162,9 @@ class PlayerController extends Controller
             //$newPercent = 100 * (($d->numVotes)/$dt);
             $dtp = ($d->numVotes) * 100 * 9;
             $dPercent = $dtp/$dt;
+            if($dPercent > 100){
+                $dPercent = 100.0;
+            }
             $defPlayer = Player::find($d->id);
             $defPlayer->votePercent = $dPercent;
             $defPlayer->save();
@@ -171,6 +177,9 @@ class PlayerController extends Controller
             //$newPercent = 100 * (($m->numVotes)/$mt);
             $mtp = ($m->numVotes) * 100 * 6;
             $mPercent = $mtp/$mt;
+            if($mPercent > 100){
+                $mPercent = 100.0;
+            }
             $midPlayer = Player::find($m->id);
             $midPlayer->votePercent = $mPercent;
             $midPlayer->save();
@@ -184,6 +193,9 @@ class PlayerController extends Controller
             //$newPercent = 100 * (($a->numVotes)/$at);
             $atp = ($a->numVotes) * 100 * 7;
             $aPercent = $atp/$at;
+            if($aPercent > 100){
+                $aPercent = 100.0;
+            }
             $attPlayer = Player::find($a->id);
             $attPlayer->votePercent = $aPercent;
             $attPlayer->save();
