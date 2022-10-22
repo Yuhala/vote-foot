@@ -132,7 +132,7 @@ class PlayerController extends Controller
         $sumVotes = $gt + $dt + $mt +$at;
         // number of actual user votes (NB: each vote contains 26 choices)
         $total = $sumVotes/26;
-        $ $totalVotes = ceil($total);
+        $totalVotes = ceil($total);
        
         /**
          * PYuhala: 
